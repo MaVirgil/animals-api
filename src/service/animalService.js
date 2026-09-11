@@ -5,14 +5,7 @@ const animalService = {
     return animalList
   },
   getById: (id) => {
-
-    let found;
-
-    for (let animal of animalList) {
-      if (animal.id === Number(id)) {
-        found = animal;
-      }
-    }
+    const found = animalList.find((animal) => animal.id === Number(id));
 
     return found ?? null;
   }
