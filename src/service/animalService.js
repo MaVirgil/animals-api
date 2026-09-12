@@ -22,6 +22,12 @@ const animalService = {
     const edited = animalRepository.edit(id, fields);
 
     return edited;
+  },
+
+  replace(id, newAnimal) {
+    const created = animalRepository.replace(id, newAnimal);
+
+    return created;
   }
 };
 

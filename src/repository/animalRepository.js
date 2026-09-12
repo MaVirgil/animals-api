@@ -42,6 +42,25 @@ const animalRepository = {
     Object.assign(animalToEdit, fieldsWithoutId);
 
     return animalToEdit;
+  },
+
+  replace(id, newAnimal) {
+    if (!animalList.find(animal => animal.id === id)) {
+      return undefined;
+    }
+
+    const { id: _id, ...newAnimalWithoutId } = newAnimal;
+
+    const created = ({
+      id,
+      ...newAnimalWithoutId
+    });
+
+    const index = animalList.indexOf(animal => animal.id === id);
+
+    animalList[index] = created;
+
+    return created;
   }
 };
 

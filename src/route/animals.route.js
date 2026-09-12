@@ -36,6 +36,30 @@ router.post('/', (req, res) => {
   });
 });
 
+// PUT
+router.put('/:id', (req, res) => {
+  const body = req.body;
+  const id = Number(req.params.id);
+
+  if (!body || Object.keys(body).length === 0) {
+    return res.status(StatusCodes.BAD_REQUEST).send({
+      data: 'Cannot post with empty or missing body',
+    });
+  }
+
+  const created = animalService.replace(id, body);
+
+  if (!created) {
+      return res.status(StatusCodes.NOT_FOUND).send({
+      data: `Cannot find animal with id: ${id}`,
+    });
+  }
+
+  return res.send({
+    data: created,
+  });
+});
+
 // PATCH
 router.patch('/:id', (req, res) => {
   const id = Number(req.params.id);
