@@ -1,54 +1,54 @@
 const animalList = [
   {
     id: 1,
-    name: "dog",
-    habitat: "land"
+    name: 'dog',
+    habitat: 'land',
   },
   {
     id: 2,
-    name: "salmon",
-    habitat: "sea"
+    name: 'salmon',
+    habitat: 'sea',
   },
   {
     id: 3,
-    name: "eagle",
-    habitat: "air"
+    name: 'eagle',
+    habitat: 'air',
   },
   {
     id: 4,
-    name: "lion",
-    habitat: "land"
+    name: 'lion',
+    habitat: 'land',
   },
   {
     id: 5,
-    name: "dolphin",
-    habitat: "sea"
+    name: 'dolphin',
+    habitat: 'sea',
   },
   {
     id: 6,
-    name: "parrot",
-    habitat: "air"
+    name: 'parrot',
+    habitat: 'air',
   },
   {
     id: 7,
-    name: "wolf",
-    habitat: "land"
+    name: 'wolf',
+    habitat: 'land',
   },
   {
     id: 8,
-    name: "shark",
-    habitat: "sea"
+    name: 'shark',
+    habitat: 'sea',
   },
   {
     id: 9,
-    name: "owl",
-    habitat: "air"
+    name: 'owl',
+    habitat: 'air',
   },
   {
     id: 10,
-    name: "elephant",
-    habitat: "land"
-  }
-]
+    name: 'elephant',
+    habitat: 'land',
+  },
+];
 
-module.exports = { animalList }
+module.exports = { animalList };

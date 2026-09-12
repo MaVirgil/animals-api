@@ -1,22 +1,21 @@
-const { animalList } = require('../data/animals')
+const { animalList } = require('../data/animals');
 
 const animalService = {
   getAll: () => {
-    return animalList
+    return animalList;
   },
 
   getById: (id) => {
-    const found = animalList.find((animal) => animal.id === Number(id));
+    const found = animalList.find((animal) => animal.id === id);
 
-    return found ?? null;
+    return found;
   },
-  
+
   add: (animal) => {
-    console.log(`adding animal: ${JSON.stringify(animal)}`);
     animalList.push(animal);
 
-    return animal
-  }
-}
+    return animal;
+  },
+};
 
-module.exports = { animalService }
+module.exports = animalService;
