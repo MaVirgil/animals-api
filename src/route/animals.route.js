@@ -1,5 +1,5 @@
 const express = require('express');
-const { animalService } = require('../service/animalService');
+const animalService = require('../service/animalService');
 const { StatusCodes } = require('http-status-codes');
 
 const router = express.Router();

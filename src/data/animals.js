@@ -51,4 +51,4 @@ const animalList = [
   },
 ];
 
-module.exports = { animalList };
+module.exports = animalList;

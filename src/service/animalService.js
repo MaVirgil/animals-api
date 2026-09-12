@@ -1,4 +1,4 @@
-const { animalList } = require('../data/animals');
+const animalList = require('../data/animals');
 
 const animalService = {
   getAll: () => {
