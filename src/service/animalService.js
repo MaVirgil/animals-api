@@ -1,21 +1,22 @@
 const animalList = require('../data/animals');
+const animalRepository = require('../data/animalRepository');
 
 const animalService = {
-  getAll: () => {
-    return animalList;
+  getAll() {
+    return animalRepository.getAll();
   },
 
-  getById: (id) => {
-    const found = animalList.find((animal) => animal.id === id);
+  getById(id) {
+    const found = animalRepository.getById(id);
 
     return found;
   },
 
-  add: (animal) => {
-    animalList.push(animal);
+  add(animal) {
+    const added = animalRepository.add(animal);
 
-    return animal;
-  },
+    return added;
+  }
 };
 
 module.exports = animalService;
