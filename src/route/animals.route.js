@@ -6,7 +6,7 @@ const router = express.Router();
 
 // GET
 router.get('/', (req, res) => {
-  res.send({
+  return res.send({
     data: animalService.getAll(),
   });
 });
@@ -14,7 +14,15 @@ router.get('/', (req, res) => {
 router.get('/:id', (req, res) => {
   const id = Number(req.params.id);
 
-  res.send({
+  const found = animalService.getById(id);
+
+  if(!found) {
+    return res.status(StatusCodes.NOT_FOUND).send({
+      data: `No animal found with id: ${id}`
+    });
+  }
+
+  return res.send({
     data: animalService.getById(id),
   });
 });
