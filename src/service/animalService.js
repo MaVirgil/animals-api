@@ -34,7 +34,7 @@ const animalService = {
     const deleted = animalRepository.delete(id);
 
     return deleted;
-  }
+  },
 };
 
 module.exports = animalService;

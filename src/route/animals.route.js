@@ -16,9 +16,9 @@ router.get('/:id', (req, res) => {
 
   const found = animalService.getById(id);
 
-  if(!found) {
+  if (!found) {
     return res.status(StatusCodes.NOT_FOUND).send({
-      data: `No animal found with id: ${id}`
+      data: `No animal found with id: ${id}`,
     });
   }
 
@@ -98,9 +98,9 @@ router.delete('/:id', (req, res) => {
 
   const deleted = animalService.delete(id);
 
-  if(!deleted) {
+  if (!deleted) {
     return res.status(StatusCodes.NOT_FOUND).send({
-      data: `Cannot find animal with id: ${id}`
+      data: `Cannot find animal with id: ${id}`,
     });
   }
 

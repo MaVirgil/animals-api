@@ -20,7 +20,7 @@ const animalRepository = {
 
     const animalToAdd = {
       id: assignedId,
-      ...animalWithoutId
+      ...animalWithoutId,
     };
 
     animalList.push(animalToAdd);
@@ -33,7 +33,7 @@ const animalRepository = {
   edit(id, fields) {
     const animalToEdit = animalList.find((animal) => animal.id === id);
 
-    if(!animalToEdit) {
+    if (!animalToEdit) {
       return undefined;
     }
 
@@ -45,17 +45,17 @@ const animalRepository = {
   },
 
   replace(id, newAnimal) {
-    const animalToReplace = animalList.find(animal => animal.id === id);
+    const animalToReplace = animalList.find((animal) => animal.id === id);
 
     if (!animalToReplace) {
       return undefined;
     }
 
     const { id: _id, ...newAnimalWithoutId } = newAnimal;
-    const created = ({
+    const created = {
       id,
-      ...newAnimalWithoutId
-    });
+      ...newAnimalWithoutId,
+    };
 
     const index = animalList.indexOf(animalToReplace);
     animalList[index] = created;
@@ -64,9 +64,9 @@ const animalRepository = {
   },
 
   delete(id) {
-    const animalToDelete = animalList.find(animal => animal.id === id);
+    const animalToDelete = animalList.find((animal) => animal.id === id);
 
-    if(!animalToDelete) {
+    if (!animalToDelete) {
       return undefined;
     }
 
@@ -74,7 +74,7 @@ const animalRepository = {
     animalList.splice(index, 1);
 
     return animalToDelete;
-  }
+  },
 };
 
 module.exports = animalRepository;
