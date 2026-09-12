@@ -16,7 +16,7 @@ const animalRepository = {
     const assignedId = idSupplier.getNext();
 
     //discard existing id field
-    const { id: _id, ...animalWithoutId } = animal
+    const { id: _id, ...animalWithoutId } = animal;
 
     const animalToAdd = {
       id: assignedId,
@@ -28,6 +28,20 @@ const animalRepository = {
     idSupplier.add(assignedId);
 
     return animalToAdd;
+  },
+
+  edit(id, fields) {
+    const animalToEdit = animalList.find((animal) => animal.id === id);
+
+    if(!animalToEdit) {
+      return undefined;
+    }
+
+    const { id: _id, ...fieldsWithoutId } = fields;
+
+    Object.assign(animalToEdit, fieldsWithoutId);
+
+    return animalToEdit;
   }
 };
 

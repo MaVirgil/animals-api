@@ -17,7 +17,6 @@ const idSupplier = {
 };
 
 function sortIds() {
-  console.log('sorting IDs...');
   takenIds.sort((a, b) => a - b);
 }
 

@@ -36,4 +36,28 @@ router.post('/', (req, res) => {
   });
 });
 
+// PATCH
+router.patch('/:id', (req, res) => {
+  const id = Number(req.params.id);
+  const body = req.body;
+
+  if (!body || Object.keys(body).length === 0) {
+    return res.status(StatusCodes.BAD_REQUEST).send({
+      data: 'Cannot patch with empty or missing body',
+    });
+  }
+
+  const edited = animalService.edit(id, body);
+
+  if (!edited) {
+    return res.status(StatusCodes.NOT_FOUND).send({
+      data: `Cannot find animal with id: ${id}`,
+    });
+  }
+
+  res.status(StatusCodes.OK).send({
+    data: edited,
+  });
+});
+
 module.exports = router;

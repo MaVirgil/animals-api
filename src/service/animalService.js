@@ -16,6 +16,12 @@ const animalService = {
     const added = animalRepository.add(animal);
 
     return added;
+  },
+
+  edit(id, fields) {
+    const edited = animalRepository.edit(id, fields);
+
+    return edited;
   }
 };
 
