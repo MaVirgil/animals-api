@@ -45,19 +45,19 @@ const animalRepository = {
   },
 
   replace(id, newAnimal) {
-    if (!animalList.find(animal => animal.id === id)) {
+    const animalToReplace = animalList.find(animal => animal.id === id);
+
+    if (!animalToReplace) {
       return undefined;
     }
 
     const { id: _id, ...newAnimalWithoutId } = newAnimal;
-
     const created = ({
       id,
       ...newAnimalWithoutId
     });
 
-    const index = animalList.indexOf(animal => animal.id === id);
-
+    const index = animalList.indexOf(animalToReplace);
     animalList[index] = created;
 
     return created;
@@ -71,7 +71,6 @@ const animalRepository = {
     }
 
     const index = animalList.indexOf(animalToDelete);
-
     animalList.splice(index, 1);
 
     return animalToDelete;
