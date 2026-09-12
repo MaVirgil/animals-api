@@ -24,10 +24,16 @@ const animalService = {
     return edited;
   },
 
-  replace(id, newAnimal) {
-    const created = animalRepository.replace(id, newAnimal);
+  replace(id, animal) {
+    const created = animalRepository.replace(id, animal);
 
     return created;
+  },
+
+  delete(id) {
+    const deleted = animalRepository.delete(id);
+
+    return deleted;
   }
 };
 

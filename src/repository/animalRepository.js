@@ -61,6 +61,20 @@ const animalRepository = {
     animalList[index] = created;
 
     return created;
+  },
+
+  delete(id) {
+    const animalToDelete = animalList.find(animal => animal.id === id);
+
+    if(!animalToDelete) {
+      return undefined;
+    }
+
+    const index = animalList.indexOf(animalToDelete);
+
+    animalList.splice(index, 1);
+
+    return animalToDelete;
   }
 };
 

@@ -31,7 +31,7 @@ router.post('/', (req, res) => {
 
   const added = animalService.add(body);
 
-  res.status(StatusCodes.CREATED).send({
+  return res.status(StatusCodes.CREATED).send({
     data: added,
   });
 });
@@ -50,12 +50,12 @@ router.put('/:id', (req, res) => {
   const created = animalService.replace(id, body);
 
   if (!created) {
-      return res.status(StatusCodes.NOT_FOUND).send({
+    return res.status(StatusCodes.NOT_FOUND).send({
       data: `Cannot find animal with id: ${id}`,
     });
   }
 
-  return res.send({
+  return res.status(StatusCodes.OK).send({
     data: created,
   });
 });
@@ -79,8 +79,25 @@ router.patch('/:id', (req, res) => {
     });
   }
 
-  res.status(StatusCodes.OK).send({
+  return res.status(StatusCodes.OK).send({
     data: edited,
+  });
+});
+
+// DELETE
+router.delete('/:id', (req, res) => {
+  const id = Number(req.params.id);
+
+  const deleted = animalService.delete(id);
+
+  if(!deleted) {
+    return res.status(StatusCodes.NOT_FOUND).send({
+      data: `Cannot find animal with id: ${id}`
+    });
+  }
+
+  return res.status(StatusCodes.OK).send({
+    data: deleted,
   });
 });
 
