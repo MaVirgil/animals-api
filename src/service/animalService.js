@@ -1,5 +1,5 @@
 const animalList = require('../data/animals');
-const animalRepository = require('../data/animalRepository');
+const animalRepository = require('../repository/animalRepository');
 
 const animalService = {
   getAll() {

@@ -1,5 +1,5 @@
-const animalList = require('./animals');
-const idSupplier = require('./idSupplier');
+const animalList = require('../data/animals');
+const idSupplier = require('../data/idSupplier');
 
 idSupplier.init(animalList.map((animal) => animal.id));
 
